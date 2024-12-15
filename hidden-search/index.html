@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Search</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen w-full flex justify-center items-center bg-violet-400">
+
+  <!-- Play with the with of input and the transform of button when the wrapper has an active class (when clicking the search button) -->
+  <div class="search group flex justify-between relative">
+    <input type="text" placeholder="Search.." class="input border rounded-md py-2 px-4 w-[50px] transition-[width] delay-[.3s] ease group-[&.active]:w-[240px] focus:outline-none">
+
+    <button class="btn absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 p-1 rounded-md bg-white transition-[transform] delay-[.3s] ease group-[&.active]:translate-x-[80px]"><i data-lucide="search" class="opacity-50"></i></button>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
