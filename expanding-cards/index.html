@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- 
+// Vanilla CSS
+transition: opacity 0.3s ease-in 0.4s;
+////
+transition-property: opacity;
+transition-duration: 0.3s;
+transition-timing-function: ease-in;
+transition-delay: 0.4s;
+////
+
+// Tailwind classes
+transition-[opacity] durations-[.3s] ease-in delay-[.4s]
+-->
+
+<body class="h-screen w-full flex flex-column justify-center items-center overflow-hidden">
+  <div class="container flex gap-4 w-[90vw]">
+    <div
+      class="active group panel cursor-pointer relative flex-1 bg-no-repeat bg-center bg-cover h-[80vh] text-white rounded-xl grow-[.5] transition-[flex-grow] duration-[.7s] ease-in [&.active]:grow-[5] bg-[url('https://images.unsplash.com/photo-1459478309853-2c33a60058e7?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+      <h2 class="text-2xl absolute bottom-4 left-4 opacity-0 transition-[opacity] durations-[.3s] delay-[.4s] ease-in group-[&.active]:opacity-100 bg-black/40 px-4 py-1 rounded-2xl">Image title</h2>
+    </div>
+    <div
+      class="group panel cursor-pointer relative flex-1 bg-no-repeat bg-center bg-cover h-[80vh] text-white rounded-xl grow-[.5] transition-[flex-grow] duration-[.7s] ease-in [&.active]:grow-[5] bg-[url('https://images.unsplash.com/photo-1617624863304-8a6a27c97d5c?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+      <h2 class="text-2xl absolute bottom-4 left-4 opacity-0 transition-[opacity] durations-[.3s] delay-[.4s] ease-in group-[&.active]:opacity-100 bg-black/40 px-4 py-1 rounded-2xl">Image title</h2>
+    </div>
+    <div
+      class="group panel cursor-pointer relative flex-1 bg-no-repeat bg-center bg-cover h-[80vh] text-white rounded-xl grow-[.5] transition-[flex-grow] duration-[.7s] ease-in [&.active]:grow-[5] bg-[url('https://images.unsplash.com/photo-1480961134882-3e636d587b2f?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+      <h2 class="text-2xl absolute bottom-4 left-4 opacity-0 transition-[opacity] durations-[.3s] delay-[.4s] ease-in group-[&.active]:opacity-100 bg-black/40 px-4 py-1 rounded-2xl">Image title</h2>
+    </div>
+    <div
+      class="group panel cursor-pointer relative flex-1 bg-no-repeat bg-center bg-cover h-[80vh] text-white rounded-xl grow-[.5] transition-[flex-grow] duration-[.7s] ease-in [&.active]:grow-[5] bg-[url('https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+      <h2 class="text-2xl absolute bottom-4 left-4 opacity-0 transition-[opacity] durations-[.3s] delay-[.4s] ease-in group-[&.active]:opacity-100 bg-black/40 px-4 py-1 rounded-2xl">Image title</h2>
+    </div>
+    <div
+      class="group panel cursor-pointer relative flex-1 bg-no-repeat bg-center bg-cover h-[80vh] text-white rounded-xl grow-[.5] transition-[flex-grow] duration-[.7s] ease-in [&.active]:grow-[5] bg-[url('https://images.unsplash.com/photo-1441205400075-68a01d4c5108?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+      <h2 class="text-2xl absolute bottom-4 left-4 opacity-0 transition-[opacity] durations-[.3s] delay-[.4s] ease-in group-[&.active]:opacity-100 bg-black/40 px-4 py-1 rounded-2xl">Image title</h2>
+    </div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
