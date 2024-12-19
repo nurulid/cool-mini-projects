@@ -1,5 +1,6 @@
 const tagsEl = document.getElementById("tags");
 const textarea = document.getElementById("textarea");
+const startBtn = document.getElementById("start");
 const tagClasses = [
   "tag",
   "px-4",
@@ -27,6 +28,14 @@ textarea.addEventListener("keyup", (e) => {
     }, 10);
     randomSelect();
   }
+});
+
+startBtn.addEventListener("click", () => {
+  while (tagsEl.firstChild) {
+    tagsEl.removeChild(tagsEl.firstChild);
+  }
+  textarea.focus();
+  startBtn.classList.add("hidden");
 });
 
 // function to create each tag seperate by comma
@@ -85,6 +94,10 @@ function randomSelect() {
       const randomTag = pickRandomTag();
       highlightTag(randomTag);
     }, 100);
+
+    setTimeout(() => {
+      startBtn.classList.remove("hidden");
+    }, 500);
   }, times * 100);
 }
 
