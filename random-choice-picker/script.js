@@ -1,6 +1,9 @@
 const tagsEl = document.getElementById("tags");
 const textarea = document.getElementById("textarea");
-const startBtn = document.getElementById("start");
+const resetBtn = document.getElementById("reset");
+const descEl = document.getElementById("desc");
+const alertEl = document.getElementById("alert");
+const lengthEl = document.getElementById("tags-length");
 const tagClasses = [
   "tag",
   "px-4",
@@ -17,25 +20,40 @@ const tagClasses = [
 textarea.focus();
 
 textarea.addEventListener("keyup", (e) => {
+  const tags = e.target.value
+    .split(",")
+    .filter((tag) => tag.trim() !== "")
+    .map((tag) => tag.trim());
+
   // run the createTags function
   createTags(e.target.value);
+  lengthEl.innerText = `${tags.length} ${tags.length > 1 ? "Choices" : "Choice"}`;
 
   // run randomSelect function if hit Enter
-  if (e.key === "Enter") {
-    // clear the textarea after 10ms
-    setTimeout(() => {
-      e.target.value = "";
-    }, 10);
-    randomSelect();
+  if ((e.key === "Enter") & (tags.length < 2)) {
+    alertEl.classList.remove("hidden");
+  }
+
+  if ((e.key === "Enter") & (tags.length > 1)) {
+    {
+      // clear the textarea after 10ms
+      setTimeout(() => {
+        e.target.value = "";
+      }, 10);
+      randomSelect();
+      alertEl.classList.add("hidden");
+    }
   }
 });
 
-startBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", () => {
   while (tagsEl.firstChild) {
     tagsEl.removeChild(tagsEl.firstChild);
   }
   textarea.focus();
-  startBtn.classList.add("hidden");
+  resetBtn.classList.add("hidden");
+  descEl.classList.remove("hidden");
+  lengthEl.innerText = "0 Choice";
 });
 
 // function to create each tag seperate by comma
@@ -96,7 +114,8 @@ function randomSelect() {
     }, 100);
 
     setTimeout(() => {
-      startBtn.classList.remove("hidden");
+      resetBtn.classList.remove("hidden");
+      descEl.classList.add("hidden");
     }, 500);
   }, times * 100);
 }
