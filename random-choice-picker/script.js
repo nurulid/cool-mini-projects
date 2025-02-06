@@ -4,6 +4,8 @@ const resetBtn = document.getElementById("reset");
 const descEl = document.getElementById("desc");
 const alertEl = document.getElementById("alert");
 const lengthEl = document.getElementById("tags-length");
+const resultEl = document.getElementById("result");
+const resultWrapperEl = document.getElementById("resultWrapper");
 const tagClasses = [
   "tag",
   "px-4",
@@ -54,6 +56,7 @@ resetBtn.addEventListener("click", () => {
   resetBtn.classList.add("hidden");
   descEl.classList.remove("hidden");
   lengthEl.innerText = "0 Choice";
+  resultWrapperEl.classList.add("hidden");
 });
 
 // function to create each tag seperate by comma
@@ -111,11 +114,15 @@ function randomSelect() {
     setTimeout(() => {
       const randomTag = pickRandomTag();
       highlightTag(randomTag);
+      
+      // Display the selected random choice in the #result element
+      resultEl.innerText = randomTag.innerText;
     }, 100);
 
     setTimeout(() => {
       resetBtn.classList.remove("hidden");
       descEl.classList.add("hidden");
+      resultWrapperEl.classList.remove("hidden");
     }, 500);
   }, times * 100);
 }
