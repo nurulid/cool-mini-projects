@@ -9,6 +9,20 @@
 </head>
 
 <style>
+  .fill {
+    background-image: url('https://picsum.photos/150/150?random');
+    background-size: cover;
+    height: 146px;
+    width: 146px;
+  }
+
+  .empty {
+    height: 150px;
+    width: 150px;
+    background: white;
+    border: 2px solid black;
+  }
+
   .hold {
     border: solid 5px #ccc;
   }
@@ -22,21 +36,13 @@
 
 <body class="h-screen w-full flex justify-center items-center bg-yellow-400">
   <div class="max-w-md mx-auto space-y-4">
-    <div class="empty size-[150px] bg-white border-2 border-black">
-      <div class="fill size-[146px] bg-[url('https://picsum.photos/150/150?random')] bg-cover" draggable="true"></div>
-    </div>
-    <div class="empty size-[150px] bg-white border-2 border-black">
+    <div class="empty">
       <div class="fill" draggable="true"></div>
     </div>
-    <div class="empty size-[150px] bg-white border-2 border-black">
-      <div class="fill" draggable="true"></div>
-    </div>
-    <div class="empty size-[150px] bg-white border-2 border-black">
-      <div class="fill" draggable="true"></div>
-    </div>
-    <div class="empty size-[150px] bg-white border-2 border-black">
-      <div class="fill" draggable="true"></div>
-    </div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
   </div>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
