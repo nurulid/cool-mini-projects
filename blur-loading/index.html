@@ -8,18 +8,33 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+<style>
+  .info-desc {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .info-desc.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+</style>
+
 <body class="h-screen w-full flex justify-center items-center relative">
   <div>
     <section
       class="bg absolute top-0 left-0 w-screen h-screen bg-no-repeat bg-cover bg-center z-[-1] blur-[0px] bg-[url('https://images.unsplash.com/photo-1494806812796-244fe51b774d?q=80&w=3534&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
     </section>
-    
-    <div class="info-container absolute top-5 left-5 right-1/2">
-      <button class="info-btn">
+
+    <div class="info-container absolute top-5 left-5 right-5 md:right-1/2">
+      <button class="info-btn" title="Feature description">
         <i data-lucide="badge-info" class="size-[35px]"></i>
       </button>
 
-      <div class="info-desc hidden p-4 bg-white/30 rounded-md backdrop-blur-sm border border-white/30">
+      <div class="info-desc p-4 bg-white/50 rounded-md backdrop-blur-sm border border-white/30">
         <h3 class="text-xl font-semibold mb-2">Progressive Loading Screen with Blur Transition</h3>
         <p>
           This is an animated loading screen that creates a smooth visual transition from a blurred background to a

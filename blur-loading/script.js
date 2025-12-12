@@ -3,8 +3,15 @@ const loadingText = document.querySelector(".loading-text");
 const infoBtn = document.querySelector(".info-btn");
 const infoDesc = document.querySelector(".info-desc");
 
-infoBtn.addEventListener("click", () => {
-  infoDesc.classList.toggle("hidden");
+infoBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  infoDesc.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!infoBtn.contains(e.target) && !infoDesc.contains(e.target)) {
+    infoDesc.classList.remove("show");
+  }
 });
 
 // initialize the loading value from 0
