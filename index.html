@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cool Mini Projects</title>
 </head>
+
 <body>
   <h1>Cool Mini Projects</h1>
   <p>Click the links below to see the preview:</p>
 
-  <ul>
-    <li><a href="https://nurulid.github.io/cool-mini-projects/blur-loading/">Blur loading</a></li>
-    <li><a href="https://nurulid.github.io/cool-mini-projects/drag-n-drop/">Drag and drop</a></li>
-    <li><a href="https://nurulid.github.io/cool-mini-projects/expanding-cards/">Expanding cards</a></li>
-    <li><a href="https://nurulid.github.io/cool-mini-projects/hidden-search/">Hidden serach</a></li>
-    <li><a href="https://nurulid.github.io/cool-mini-projects/random-choice-picker/">Random choice picker</a></li>
+  <ul id="projects-list">
+    <li><a href="#" data-project="blur-loading">Blur loading</a></li>
+    <li><a href="#" data-project="drag-n-drop">Drag and drop</a></li>
+    <li><a href="#" data-project="expanding-cards">Expanding cards</a></li>
+    <li><a href="#" data-project="hidden-search">Hidden search</a></li>
+    <li><a href="#" data-project="random-choice-picker">Random choice picker</a></li>
   </ul>
+
+
+  <script>
+    // detect if we're on localhost or GitHub Pages
+    (function () {
+      const hostname = window.location.hostname;
+      const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+      const isGitHubPages = hostname.includes('github.io');
+
+      // set the base path
+      window.BASE_PATH = isGitHubPages ? '/cool-mini-projects/' : '/';
+
+      console.log('Environment:', isGitHubPages ? 'Production' : 'Local');
+      console.log('Base path:', window.BASE_PATH);
+    })();
+
+
+    // function to update all project links
+    function updateProjectLinks() {
+      const links = document.querySelectorAll('[data-project]');
+
+      links.forEach(link => {
+        const projectName = link.getAttribute('data-project');
+        // create correct URL based on environment
+        link.href = `${window.BASE_PATH}${projectName}/`;
+
+        // add a title attribute for better UX
+        link.title = `Open ${projectName.replace('-', ' ')} project`;
+      });
+    }
+
+    // run when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      // make sure BASE_PATH is set (in case script runs out of order)
+      if (!window.BASE_PATH) {
+        const hostname = window.location.hostname;
+        window.BASE_PATH = hostname.includes('github.io') ? '/cool-mini-projects/' : '/';
+      }
+
+      updateProjectLinks();
+
+      console.log('Links updated for:', window.BASE_PATH);
+    });
+  </script>
+
 </body>
+
 </html>
