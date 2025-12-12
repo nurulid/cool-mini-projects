@@ -1,5 +1,11 @@
 const bg = document.querySelector(".bg");
 const loadingText = document.querySelector(".loading-text");
+const infoBtn = document.querySelector(".info-btn");
+const infoDesc = document.querySelector(".info-desc");
+
+infoBtn.addEventListener("click", () => {
+  infoDesc.classList.toggle("hidden");
+});
 
 // initialize the loading value from 0
 let load = 0;
