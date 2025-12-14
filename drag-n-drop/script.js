@@ -8,7 +8,19 @@
 // 8. update the dragLeave function by set the class to "empty again"
 
 const fill = document.querySelector(".fill");
-const empties = document.querySelectorAll(".empty");
+const empties = document.querySelectorAll(".empty");const infoBtn = document.querySelector(".info-btn");
+const infoDesc = document.querySelector(".info-desc");
+
+infoBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  infoDesc.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!infoBtn.contains(e.target) && !infoDesc.contains(e.target)) {
+    infoDesc.classList.remove("show");
+  }
+});
 
 fill.addEventListener("dragstart", dragStart);
 fill.addEventListener("dragend", dragEnd);

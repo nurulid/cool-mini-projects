@@ -20,7 +20,7 @@
     height: 150px;
     width: 150px;
     background: white;
-    border: 2px solid black;
+    border: 2px solid white;
   }
 
   .hold {
@@ -28,14 +28,51 @@
   }
 
   .hovered {
-    background-color: #333;
+    background-color: #b0b0b0;
     border-color: white;
     border-style: dashed;
   }
+
+  .info-desc {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .info-desc.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 </style>
 
-<body class="h-screen w-full flex justify-center items-center bg-yellow-400">
-  <div class="max-w-md mx-auto space-y-4">
+<body class="h-screen w-full block md:flex bg-teal-400 m-6">
+  <div class="info-container top-5 left-5 right-5 absolute md:static h-20">
+    <button class="info-btn" title="Feature description">
+      <i data-lucide="badge-info" class="size-[35px]"></i>
+    </button>
+
+    <div class="info-desc p-4 bg-white/50 rounded-md backdrop-blur-sm border border-white/30 w-full md:w-[500px]">
+      <h3 class="text-xl font-semibold mb-2">Interactive Drag-and-Drop Container System</h3>
+      <p>
+        This is a drag-and-drop interface where users can move an element between multiple empty containers. <br> <br> The concept is to drag a "fill" element into different "empty" slots. The fill element is represented by an image, and the empty containers are blank boxes. <br> <br> Users can click and hold the fill element to drag it over to any of the empty containers, which will highlight when hovered over, indicating that it can accept the drop.
+      </p>
+
+      <h4 class="text-lg font-semibold mt-4 mb-2">Use Cases:</h4>
+      <ul
+        class="[&>li]:before:content-['•'] [&>li]:before:mr-3 [&>li]:before:text-black [&>li]:before:font-bold list-none space-y-1 pl-0">
+        <li>Puzzle games</li>
+        <li>Task management boards</li>
+        <li>Image/photo sorting interfaces</li>
+        <li>File upload zones with preview</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="max-w-md mx-0 md:mx-20 space-y-4 pt-10 md:pt-0">
+    <h3 class="text-xl font-semibold mb-2">Hold and drag the image into the empty block</h3>
     <div class="empty">
       <div class="fill" draggable="true"></div>
     </div>
@@ -44,6 +81,7 @@
     <div class="empty"></div>
     <div class="empty"></div>
   </div>
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
